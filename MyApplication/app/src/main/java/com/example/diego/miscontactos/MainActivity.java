@@ -5,19 +5,46 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.TabHost;
 import android.widget.Toast;
+
+import com.example.diego.miscontactos.util.Contacto;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainActivity extends Activity {
 
     private EditText txtNombre,txtTelefono,txtEmail,txtDireccion;
     private Button btnAgregar;
+    private List<Contacto> contactos = new ArrayList<Contacto>();
+    private ListView contactsListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         inicializarComponenteUI();
+        inicializarTabs();
+    }
+
+    private void inicializarTabs()  {
+
+        TabHost tabHost=(TabHost)findViewById(R.id.tabHost);
+        tabHost.setup();
+
+        TabHost.TabSpec spec  =tabHost.newTabSpec("tab1");
+        spec.setContent(R.id.tab1);
+        spec.setIndicator("Crear");
+        tabHost.addTab(spec);
+
+        spec  =tabHost.newTabSpec("tab2");
+        spec.setContent(R.id.tab2);
+        spec.setIndicator("Lista");
+        tabHost.addTab(spec);
+
     }
 
     private void inicializarComponenteUI(){
@@ -27,6 +54,7 @@ public class MainActivity extends Activity {
         txtEmail=(EditText)findViewById(R.id.cmpCorreoElectronico);
         txtDireccion=(EditText)findViewById(R.id.cmpDireccion);
         btnAgregar=(Button)findViewById(R.id.btnAgregarContacto);
+        contactsListView= (ListView) findViewById(R.id.listView);
 
     }
 
