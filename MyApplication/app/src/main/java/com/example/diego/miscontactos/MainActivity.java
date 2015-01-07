@@ -1,39 +1,47 @@
 package com.example.diego.miscontactos;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity {
+
+    private EditText txtNombre,txtTelefono,txtEmail,txtDireccion;
+    private Button btnAgregar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        inicializarComponenteUI();
     }
 
+    private void inicializarComponenteUI(){
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+        txtNombre=(EditText)findViewById(R.id.cmpNombreContacto);
+        txtTelefono=(EditText)findViewById(R.id.cmpTelefono);
+        txtEmail=(EditText)findViewById(R.id.cmpCorreoElectronico);
+        txtDireccion=(EditText)findViewById(R.id.cmpDireccion);
+        btnAgregar=(Button)findViewById(R.id.btnAgregarContacto);
+
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+    public void onClick(View view) {
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+        String mensaje =String.format("Ha sido agregado a la lista "+txtNombre.getText());
+        Toast.makeText(this,mensaje,Toast.LENGTH_SHORT).show();
+        LimpiarCampos();
 
-        return super.onOptionsItemSelected(item);
+    }
+
+    private void LimpiarCampos() {
+        txtNombre.getText().clear();
+        txtDireccion.getText().clear();
+        txtTelefono.getText().clear();
+        txtEmail.getText().clear();
     }
 }

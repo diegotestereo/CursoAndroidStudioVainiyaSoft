@@ -56,5 +56,6 @@
         android:text="Agregar Contacto"
         android:id="@+id/btnAgregarContacto"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="onClick"/>
 </RelativeLayout>
