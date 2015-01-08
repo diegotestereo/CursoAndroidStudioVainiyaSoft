@@ -60,9 +60,22 @@ public class MainActivity extends Activity {
 
     public void onClick(View view) {
 
+        agregarContacto(txtNombre.getText().toString(), txtEmail.getText().toString(), txtDireccion.getText().toString(), txtTelefono.getText().toString());
         String mensaje =String.format("Ha sido agregado a la lista "+txtNombre.getText());
         Toast.makeText(this,mensaje,Toast.LENGTH_SHORT).show();
+        inicializarListView();
         LimpiarCampos();
+
+    }
+
+    private void inicializarListView() {
+
+
+    }
+
+    private void agregarContacto(String nombre, String direccion, String email, String telefono) {
+        // agrego contactos  ala lista
+        contactos.add(new Contacto(nombre,telefono ,email,direccion));
 
     }
 
