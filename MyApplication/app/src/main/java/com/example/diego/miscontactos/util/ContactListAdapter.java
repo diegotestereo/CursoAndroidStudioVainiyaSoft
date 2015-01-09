@@ -38,11 +38,13 @@ public class ContactListAdapter extends ArrayAdapter<Contacto> {
 
         TextView textView=(TextView)view.findViewById(R.id.viewNombre);
         textView.setText(actual.getNombre());
-        textView =(TextView)view.findViewById(R.id.viewTelefono);
-        textView.setText(actual.getTelefono());
         textView=(TextView)view.findViewById(R.id.viewDireccion);
         textView.setText(actual.getDireccion());
         textView=(TextView)view.findViewById(R.id.viewEmail);
         textView.setText(actual.getEmail());
+        textView =(TextView)view.findViewById(R.id.viewTelefono);
+        textView.setText(actual.getTelefono());
+
+
     }
 }

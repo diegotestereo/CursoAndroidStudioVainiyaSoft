@@ -41,7 +41,18 @@
                         android:id="@+id/textView"
                         android:layout_alignParentTop="true"
                         android:layout_centerHorizontal="true"
-                        android:textSize="30sp" />
+                        android:textSize="30sp"
+                        android:layout_gravity="center_horizontal" />
+
+                    <ImageView
+                        android:layout_width="96dp"
+                        android:layout_height="96dp"
+                        android:id="@+id/imageView"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/ic_launcher"
+                        android:scaleType="fitCenter"
+                        android:onClick="onImgClick"/>
 
                     <EditText
                         android:layout_width="match_parent"
